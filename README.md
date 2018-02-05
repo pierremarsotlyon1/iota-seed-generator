@@ -1,6 +1,7 @@
 # Description
 A web application to generate a iota seed
 
+Demo : https://iota-seed-generator-front.herokuapp.com/
 
 # Install server :
 1. Put the content of "server" folder into your GOPATH.
