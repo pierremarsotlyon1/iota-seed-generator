@@ -13,8 +13,7 @@ import ShareIcon from 'material-ui-icons/Share';
 import TextField from 'material-ui/TextField';
 import {generateSeed} from '../actions/seed';
 import Snackbar from 'material-ui/Snackbar';
-
-const platform = require('platform');
+import {GithubCircle} from "mdi-material-ui";
 
 const styles = theme => ({
     root: {
@@ -33,6 +32,9 @@ const styles = theme => ({
     menuButton: {
         marginLeft: -12,
         marginRight: 20,
+    },
+    white: {
+        color: "#FFFFFF",
     },
     button: {
         margin: theme.spacing.unit,
@@ -71,11 +73,11 @@ class Home extends React.Component {
     };
 
     handleOpenSnackbar = () => {
-        this.setState({ snackbarOpen: true });
+        this.setState({snackbarOpen: true});
     };
 
     handleCloseSnackbar = () => {
-        this.setState({ snackbarOpen: false });
+        this.setState({snackbarOpen: false});
     };
 
     render() {
@@ -106,7 +108,15 @@ class Home extends React.Component {
                         <Typography type="title" color="inherit" className={classes.flex}>
                             IOTA Seed Generator
                         </Typography>
-
+                        <IconButton aria-label="Github repository">
+                            <a
+                                href="https://github.com/pierremarsotlyon1/iota-seed-generator"
+                                target="_blank"
+                                className={classes.white}
+                            >
+                                <GithubCircle/>
+                            </a>
+                        </IconButton>
                     </Toolbar>
                 </AppBar>
                 <section className={classes.content}>
@@ -122,7 +132,7 @@ class Home extends React.Component {
                 </section>
 
                 <Snackbar
-                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                    anchorOrigin={{vertical: 'top', horizontal: 'right'}}
                     open={snackbarOpen}
                     onClose={this.handleCloseSnackbar}
                     SnackbarContentProps={{
