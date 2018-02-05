@@ -12,7 +12,7 @@ export function get(url) {
             .end((error, response) => {
                 if (error) {
                     return reject({
-                        error: 'Erreur de connexion avec le serveur'
+                        error: 'Error connecting to the server'
                     });
                 }
 
@@ -21,7 +21,7 @@ export function get(url) {
                 }
 
                 return reject({
-                    error: 'Erreur de connexion avec le serveur'
+                    error: 'Error connecting to the server'
                 });
             });
     });

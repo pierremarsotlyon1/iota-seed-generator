@@ -12,6 +12,7 @@ import IconButton from 'material-ui/IconButton';
 import ShareIcon from 'material-ui-icons/Share';
 import TextField from 'material-ui/TextField';
 import {generateSeed} from '../actions/seed';
+import Snackbar from 'material-ui/Snackbar';
 
 const platform = require('platform');
 
@@ -49,6 +50,7 @@ class Home extends React.Component {
         this.state = {
             seed: '',
             error: '',
+            snackbarOpen: false,
         };
     }
 
@@ -63,13 +65,22 @@ class Home extends React.Component {
             .catch((error) => {
                 that.setState({
                     error,
+                    snackbarOpen: true,
                 });
             });
     };
 
+    handleOpenSnackbar = () => {
+        this.setState({ snackbarOpen: true });
+    };
+
+    handleCloseSnackbar = () => {
+        this.setState({ snackbarOpen: false });
+    };
+
     render() {
         const {classes} = this.props;
-        const {seed} = this.state;
+        const {seed, snackbarOpen, error} = this.state;
 
         let textField = null;
 
@@ -109,6 +120,16 @@ class Home extends React.Component {
                         Generate a truly seed
                     </Button>
                 </section>
+
+                <Snackbar
+                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                    open={snackbarOpen}
+                    onClose={this.handleCloseSnackbar}
+                    SnackbarContentProps={{
+                        'aria-describedby': 'message-id',
+                    }}
+                    message={<span id="message-id">{error}</span>}
+                />
             </div>
         )
     }
