@@ -1,19 +1,19 @@
-#Description
+# Description
 A web application to generate a iota seed
 
 
-#Install server :
+# Install server :
 
 Put the content of "server" folder into your GOPATH.
 
 Run this command : go get ./...
 
-#Install client :
+# Install client :
 Move to "client" folder.
 
 Run this command : yarn install
 
-#Launch app
+# Launch app
 Into "client" : yarn start.
 
 Into "server" : go run server.go
